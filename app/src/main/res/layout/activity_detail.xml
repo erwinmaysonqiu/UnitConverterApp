@@ -46,7 +46,7 @@
         app:layout_constraintTop_toBottomOf="@+id/UnitFirst" />
 
     <Button
-        android:id="@+id/btnConvert"
+        android:id="@+id/btnReturn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="120dp"
@@ -59,7 +59,7 @@
         android:id="@+id/tvOutput"
         android:layout_width="277dp"
         android:layout_height="35dp"
-        android:layout_marginTop="280dp"
+        android:layout_marginTop="184dp"
         android:background="#E4E4E4"
         android:text="TextView"
         android:textAlignment="center"

@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         EditText txtInput = findViewById(R.id.txtInput);
         TextView tvUnitFirst = findViewById(R.id.tvUnitFirst);
         TextView tvUnitSecond = findViewById(R.id.tvUnitSecond);
-        Button btnConvert = findViewById(R.id.btnConvert);
+        Button btnConvert = findViewById(R.id.btnReturn);
 
         float input, output;
         int num1, num2;
