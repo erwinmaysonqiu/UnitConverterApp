@@ -52,4 +52,9 @@ public class Unit {
     public ArrayList<Unit> getUnits() {
         return unitArrayList;
     }
+
+    //7. Declare a publicly accessible data store for final result from conversion and unit names
+    public static float conversionResult;
+    public static String conversionUnit1;
+    public static String conversionUnit2;
   }

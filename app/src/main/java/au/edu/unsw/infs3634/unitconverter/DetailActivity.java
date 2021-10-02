@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -15,11 +16,18 @@ public class DetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detail);
 
         //Declare and initialize the xml elements in the layout
+        TextView tvUnitFirst = findViewById(R.id.tvUnitFirst);
+        TextView tvUnitSecond = findViewById(R.id.tvUnitSecond);
+        TextView tvResult = findViewById(R.id.tvOutput);
 
         Button btnReturn = findViewById(R.id.btnReturn);
 
 
-        //Set the textviews to display the UnitFirst, UnitSecond and also the result
+        //Set the textviews to display the name of the units, and also the final result
+        //Unit names and conversion result were stored in publicly accessible variables from the Unit class, which acted as data stores
+        tvUnitFirst.setText(Unit.conversionUnit1);
+        tvUnitSecond.setText(Unit.conversionUnit2);
+        tvResult.setText(String.valueOf(Unit.conversionResult));
 
 
         //Create an onClick listener that will take the user back to the MainActivity
