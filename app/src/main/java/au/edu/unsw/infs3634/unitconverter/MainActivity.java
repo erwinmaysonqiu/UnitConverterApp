@@ -114,6 +114,9 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this,DetailActivity.class);
                 //start the activity, and pass in intent as the argument
                 startActivity(intent);
+
+                //finish the activity, so that when press Return in DetailActivity, Activity is created again
+                finish();
             }
         });
     }
