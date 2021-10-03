@@ -83,27 +83,30 @@ public class MainActivity extends AppCompatActivity {
                 //Unit 1 is cm
                 if (num1 == 1) {
                     tempNum = input * 10;
-                    //Unit 1 is m
+                //Unit 1 is m
                 } else if (num1 == 2) {
-                    tempNum = input * (10*100);
-                    //Unit 1 is km
+                    tempNum = input * (10 * 100);
+                //Unit 1 is km
                 } else if (num1 == 3) {
-                    tempNum = input * (10*100*1000);
-                    //Unit 1 is mm
+                    tempNum = input * (10 * 100 * 1000);
+                //Unit 1 is mm
                 } else {
                     tempNum = input;
                 }
 
                 //Step 2: Convert mm to final output unit
+                //Unit 2 is mm, so do nothing
+                if (finalNum == 0) {
+                    output = tempNum;
                 //Unit 2 is cm
-                if (finalNum == 1) {
+                } else if (finalNum == 1) {
                     output = tempNum / 10;
-                    //Unit 2 is m
+                //Unit 2 is m
                 } else if (finalNum == 2) {
                     output = tempNum / (10*100);
-                    //
+                //Unit 2 is km
                 } else {
-                    output = tempNum / (10*100*1000);
+                    output = tempNum / (10 * 100 * 1000);
                 }
 
                 //Store the result in conversionResult, so it can be accessed by DetailActivity
