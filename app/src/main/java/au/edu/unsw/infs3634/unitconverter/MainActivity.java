@@ -124,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
 
                 //If the user enters non-numeric data, display an error message.
                 } catch (Exception e) {
-                    txtInput.setError("Please enter a number here, then press 'Convert'");
+                    txtInput.setError("Please input a number here, then press 'Convert'.");
                 }
             }
         });
