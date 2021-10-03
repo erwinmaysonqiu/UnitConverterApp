@@ -121,6 +121,8 @@ public class MainActivity extends AppCompatActivity {
 
                     //finish the activity, so that when press Return in DetailActivity, Activity is created again
                     finish();
+
+                //If the user enters non-numeric data, display an error message.
                 } catch (Exception e) {
                     txtInput.setError("Please enter a number here, then press 'Convert'");
                 }
