@@ -75,51 +75,55 @@ public class MainActivity extends AppCompatActivity {
         int finalNum = num2;
         btnConvert.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view) throws NumberFormatException {
                 //Step 1: Convert input to mm, using a tempNum
-                float input = Integer.parseInt(String.valueOf(txtInput.getText()));
-                float tempNum, output;
+                //If the input is not a number, display an error message.
+                try {
+                    float input = Float.parseFloat(String.valueOf(txtInput.getText()));
+                    float tempNum, output;
+                    //Unit 1 is cm
+                    if (num1 == 1) {
+                        tempNum = input * 10;
+                        //Unit 1 is m
+                    } else if (num1 == 2) {
+                        tempNum = input * (10 * 100);
+                        //Unit 1 is km
+                    } else if (num1 == 3) {
+                        tempNum = input * (10 * 100 * 1000);
+                        //Unit 1 is mm
+                    } else {
+                        tempNum = input;
+                    }
 
-                //Unit 1 is cm
-                if (num1 == 1) {
-                    tempNum = input * 10;
-                //Unit 1 is m
-                } else if (num1 == 2) {
-                    tempNum = input * (10 * 100);
-                //Unit 1 is km
-                } else if (num1 == 3) {
-                    tempNum = input * (10 * 100 * 1000);
-                //Unit 1 is mm
-                } else {
-                    tempNum = input;
+                    //Step 2: Convert mm to final output unit
+                    //Unit 2 is mm, so do nothing
+                    if (finalNum == 0) {
+                        output = tempNum;
+                        //Unit 2 is cm
+                    } else if (finalNum == 1) {
+                        output = tempNum / 10;
+                        //Unit 2 is m
+                    } else if (finalNum == 2) {
+                        output = tempNum / (10*100);
+                        //Unit 2 is km
+                    } else {
+                        output = tempNum / (10 * 100 * 1000);
+                    }
+
+                    //Store the result in conversionResult, so it can be accessed by DetailActivity
+                    Unit.conversionResult = output;
+
+                    //Take user to DetailActivity to see result
+                    //Create a new intent, to take user to DetailActivity
+                    Intent intent = new Intent(MainActivity.this,DetailActivity.class);
+                    //start the activity, and pass in intent as the argument
+                    startActivity(intent);
+
+                    //finish the activity, so that when press Return in DetailActivity, Activity is created again
+                    finish();
+                } catch (Exception e) {
+                    txtInput.setError("Please enter a number here, then press 'Convert'");
                 }
-
-                //Step 2: Convert mm to final output unit
-                //Unit 2 is mm, so do nothing
-                if (finalNum == 0) {
-                    output = tempNum;
-                //Unit 2 is cm
-                } else if (finalNum == 1) {
-                    output = tempNum / 10;
-                //Unit 2 is m
-                } else if (finalNum == 2) {
-                    output = tempNum / (10*100);
-                //Unit 2 is km
-                } else {
-                    output = tempNum / (10 * 100 * 1000);
-                }
-
-                //Store the result in conversionResult, so it can be accessed by DetailActivity
-                Unit.conversionResult = output;
-
-                //Take user to DetailActivity to see result
-                //Create a new intent, to take user to DetailActivity
-                Intent intent = new Intent(MainActivity.this,DetailActivity.class);
-                //start the activity, and pass in intent as the argument
-                startActivity(intent);
-
-                //finish the activity, so that when press Return in DetailActivity, Activity is created again
-                finish();
             }
         });
     }
