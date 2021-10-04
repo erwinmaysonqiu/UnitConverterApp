@@ -81,6 +81,8 @@ public class MainActivity extends AppCompatActivity {
                 try {
                     float input = Float.parseFloat(String.valueOf(txtInput.getText()));
                     float tempNum, output;
+                    //Store the conversionInput so it can be displayed in DetailActivity
+                    Unit.conversionInput = input;
                     //Unit 1 is cm
                     if (num1 == 1) {
                         tempNum = input * 10;

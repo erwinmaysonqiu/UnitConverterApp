@@ -7,79 +7,79 @@
     android:visibility="visible"
     tools:context=".MainActivity">
 
+    <EditText
+        android:id="@+id/txtInput"
+        android:layout_width="292dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="104dp"
+        android:backgroundTint="#673AB7"
+        android:ems="10"
+        android:hint="Enter a number here..."
+        android:inputType="number|numberDecimal"
+        android:textColor="#673AB7"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/tvUnitFirst"
         android:layout_width="122dp"
         android:layout_height="26dp"
-        android:layout_marginStart="8dp"
         android:text="TextView"
+        android:textColor="#673AB7"
         android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/UnitFirst"
-        app:layout_constraintTop_toTopOf="@+id/UnitFirst" />
+        app:layout_constraintStart_toStartOf="@+id/txtInput"
+        app:layout_constraintTop_toBottomOf="@+id/txtInput" />
 
-    <TextView
-        android:id="@+id/UnitFirst"
-        android:layout_width="72dp"
-        android:layout_height="24dp"
-        android:layout_marginTop="36dp"
-        android:text="Unit 1:"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+    <EditText
+        android:id="@+id/txtOutput"
+        android:layout_width="288dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="84dp"
+        android:backgroundTint="#BFBABA"
+        android:clickable="false"
+        android:editable="false"
+        android:ems="10"
+        android:enabled="false"
+        android:inputType="number|numberDecimal"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="@+id/txtInput"
+        app:layout_constraintTop_toBottomOf="@+id/txtInput" />
 
     <TextView
         android:id="@+id/tvUnitSecond"
         android:layout_width="123dp"
         android:layout_height="26dp"
-        android:layout_marginStart="8dp"
         android:text="TextView"
+        android:textColor="#673AB7"
         android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/UnitSecond"
-        app:layout_constraintTop_toTopOf="@+id/UnitSecond" />
-
-    <TextView
-        android:id="@+id/UnitSecond"
-        android:layout_width="73dp"
-        android:layout_height="26dp"
-        android:layout_marginTop="12dp"
-        android:text="Unit 2:"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@+id/UnitFirst"
-        app:layout_constraintTop_toBottomOf="@+id/UnitFirst" />
+        app:layout_constraintStart_toStartOf="@+id/txtOutput"
+        app:layout_constraintTop_toBottomOf="@+id/txtOutput" />
 
     <Button
         android:id="@+id/btnReturn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="70dp"
         android:text="Convert"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvUnitSecond" />
+        app:layout_constraintTop_toBottomOf="@+id/txtOutput" />
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="294dp"
-        android:layout_height="28dp"
-        android:layout_marginTop="4dp"
-        android:text='Please enter a value above. Then press "Convert".'
-        android:textSize="12sp"
-        app:layout_constraintStart_toStartOf="@+id/txtInput"
-        app:layout_constraintTop_toBottomOf="@+id/txtInput" />
-
-    <EditText
-        android:id="@+id/txtInput"
-        android:layout_width="288dp"
-        android:layout_height="54dp"
-        android:layout_marginTop="172dp"
-        android:ems="10"
-        android:inputType="number|numberDecimal"
-        android:text="Enter a number here..."
-        android:textSize="24sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="="
+        android:textAlignment="inherit"
+        android:textColor="#673AB7"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toTopOf="@+id/txtOutput"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.471"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/txtInput" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
