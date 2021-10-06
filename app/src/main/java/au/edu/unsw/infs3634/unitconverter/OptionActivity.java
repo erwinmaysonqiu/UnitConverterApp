@@ -76,6 +76,9 @@ public class OptionActivity extends AppCompatActivity {
         spinnerFirst.setEnabled(false);
         spinnerSecond.setEnabled(false);
         Log.d(TAG, "Spinners have been disabled by default");
+        //Increase transparency so user can tell
+        spinnerFirst.setAlpha(.4f);
+        spinnerSecond.setAlpha(.4f);
 
         //Check if manual unit control was toggled previously by the user
         if (setting.isBooleanManual() == true) {
@@ -146,11 +149,17 @@ public class OptionActivity extends AppCompatActivity {
                     //Even if the user does not select an item, whatever is currently selected in the spinner should be the selected unit
                     setting.setUnitFirst(spinnerFirst.getSelectedItemPosition());
                     setting.setUnitSecond(spinnerSecond.getSelectedItemPosition());
+                    //Increase transparency
+                    spinnerFirst.setAlpha(1f);
+                    spinnerSecond.setAlpha(1f);
 
                 } else {
                     spinnerFirst.setEnabled(false);
                     spinnerSecond.setEnabled(false);
                     setting.setBooleanManual(false);
+                    //Increase transparency
+                    spinnerFirst.setAlpha(.4f);
+                    spinnerSecond.setAlpha(.4f);
                 }
             }
         });
