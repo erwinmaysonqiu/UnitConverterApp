@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Switch;
 import android.widget.TextView;
 
@@ -27,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         TextView tvUnitFirst = findViewById(R.id.tvUnitFirst);
         TextView tvUnitSecond = findViewById(R.id.tvUnitSecond);
         Button btnConvert = findViewById(R.id.btnConvert);
-        Button btnOption = findViewById(R.id.btnOption);
+        ImageButton btnOption = findViewById(R.id.btnOption);
         Switch switchUI = findViewById(R.id.switchUI);
 
         int num1;

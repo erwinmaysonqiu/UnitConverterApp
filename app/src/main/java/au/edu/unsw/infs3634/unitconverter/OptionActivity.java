@@ -1,6 +1,7 @@
 package au.edu.unsw.infs3634.unitconverter;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -27,6 +28,7 @@ public class OptionActivity extends AppCompatActivity {
         setContentView(R.layout.activity_option);
 
         //Declare XML elements
+        View option = findViewById(R.id.viewOption);
         Spinner spinnerFirst = findViewById(R.id.spinnerUnit1);
         Spinner spinnerSecond = findViewById(R.id.spinnerUnit2);
         Switch switchManualUnits = findViewById(R.id.switchManual);
@@ -37,16 +39,34 @@ public class OptionActivity extends AppCompatActivity {
         Unit unit = new Unit();
         Setting setting = new Setting();
 
+        //Check if the User turned on Dark Mode
+        if (Setting.isBooleanNight() == true) {
+            option.setBackgroundColor(Color.parseColor("#212121"));
+            switchManualUnits.setTextColor(Color.parseColor("#ffffff"));
 
+            //Also need to adapt colour of the text for our Spinners
+            ArrayAdapter<String> spinnerAdapterDark = new ArrayAdapter<>(OptionActivity.this,
+                    R.layout.spinner_item_dark,
+                    getResources().getStringArray(R.array.units));
 
+            //Also need to adapt colour of the text in our dropdown items list with our custom layout
+            spinnerAdapterDark.setDropDownViewResource(R.layout.spinner_item_dropdown_dark);
 
-        //Declare and link the Adapter for the Spinner of dropdown items in Options
-        ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>(OptionActivity.this,
-                android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.units));
+            spinnerFirst.setAdapter(spinnerAdapterDark);
+            spinnerSecond.setAdapter(spinnerAdapterDark);
 
-        spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerFirst.setAdapter(spinnerAdapter);
-        spinnerSecond.setAdapter(spinnerAdapter);
+        } else {
+            //If user has not turned on Dark mode, use the default settings
+            //Declare and link the Adapter for the Spinner of dropdown items in Options
+            ArrayAdapter<String> spinnerAdapterLight = new ArrayAdapter<String>(OptionActivity.this,
+                    R.layout.spinner_item_light,
+                    getResources().getStringArray(R.array.units));
+
+            spinnerAdapterLight.setDropDownViewResource(R.layout.spinner_item_dropdown_light);
+            spinnerFirst.setAdapter(spinnerAdapterLight);
+            spinnerSecond.setAdapter(spinnerAdapterLight);
+        }
+
 
         //onCreate, disable the Spinner upon loading the Option activity
         //NB: cannot disable it via XML

@@ -20,14 +20,14 @@
     <EditText
         android:id="@+id/txtInput2"
         android:layout_width="292dp"
-        android:layout_height="56dp"
-        android:layout_marginTop="104dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="144dp"
         android:backgroundTint="#673AB7"
         android:ems="10"
         android:enabled="false"
         android:inputType="number|numberDecimal"
         android:textColor="#673AB7"
-        android:textSize="24sp"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
@@ -49,14 +49,14 @@
     <EditText
         android:id="@+id/txtOutput2"
         android:layout_width="292dp"
-        android:layout_height="56dp"
-        android:layout_marginTop="84dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="104dp"
         android:backgroundTint="#673AB7"
         android:editable="false"
         android:ems="10"
         android:inputType="number|numberDecimal"
         android:textColor="#673AB7"
-        android:textSize="24sp"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="@+id/txtInput2"
         app:layout_constraintTop_toBottomOf="@+id/txtInput2" />
 
@@ -64,9 +64,10 @@
         android:id="@+id/tvUnitFirst"
         android:layout_width="122dp"
         android:layout_height="26dp"
+        android:paddingLeft="5dp"
         android:text="TextView"
         android:textColor="#673AB7"
-        android:textSize="16sp"
+        android:textSize="14sp"
         app:layout_constraintStart_toStartOf="@+id/txtInput2"
         app:layout_constraintTop_toBottomOf="@+id/txtInput2" />
 
@@ -74,15 +75,16 @@
         android:id="@+id/tvUnitSecond"
         android:layout_width="123dp"
         android:layout_height="26dp"
+        android:paddingLeft="5dp"
         android:text="TextView"
         android:textColor="#673AB7"
-        android:textSize="16sp"
+        android:textSize="14sp"
         app:layout_constraintStart_toStartOf="@+id/txtOutput2"
         app:layout_constraintTop_toBottomOf="@+id/txtOutput2" />
 
     <Button
         android:id="@+id/btnReturn"
-        android:layout_width="wrap_content"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="70dp"
         android:text="Return"

@@ -8,64 +8,67 @@
     android:visibility="visible"
     tools:context=".MainActivity">
 
-    <EditText
-        android:id="@+id/txtInput"
-        android:layout_width="292dp"
-        android:layout_height="56dp"
-        android:layout_marginTop="104dp"
-        android:backgroundTint="#673AB7"
-        android:ems="10"
-        android:hint="Enter a number here..."
-        android:inputType="number|numberDecimal"
-        android:textColor="#673AB7"
-        android:textColorHint="#707070"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <TextView
         android:id="@+id/tvUnitFirst"
         android:layout_width="122dp"
         android:layout_height="26dp"
+        android:paddingLeft="5dp"
         android:text="TextView"
         android:textColor="#673AB7"
-        android:textSize="16sp"
+        android:textSize="14sp"
         app:layout_constraintStart_toStartOf="@+id/txtInput"
         app:layout_constraintTop_toBottomOf="@+id/txtInput" />
 
     <EditText
         android:id="@+id/txtOutput"
-        android:layout_width="288dp"
-        android:layout_height="54dp"
-        android:layout_marginTop="84dp"
+        android:layout_width="292dp"
+        android:layout_height="40sp"
+        android:layout_marginTop="104dp"
         android:backgroundTint="#BFBABA"
         android:clickable="false"
         android:editable="false"
         android:ems="10"
         android:enabled="false"
         android:inputType="number|numberDecimal"
-        android:textSize="24sp"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="@+id/txtInput"
         app:layout_constraintTop_toBottomOf="@+id/txtInput" />
+
+    <EditText
+        android:id="@+id/txtInput"
+        android:layout_width="292dp"
+        android:layout_height="40sp"
+        android:layout_marginTop="144dp"
+        android:backgroundTint="#673AB7"
+        android:ems="10"
+        android:hint="Enter a number here..."
+        android:inputType="number|numberDecimal"
+        android:textColor="#673AB7"
+        android:textColorHint="#707070"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tvUnitSecond"
         android:layout_width="123dp"
         android:layout_height="26dp"
+        android:paddingLeft="5dp"
         android:text="TextView"
         android:textColor="#673AB7"
-        android:textSize="16sp"
+        android:textSize="14sp"
         app:layout_constraintStart_toStartOf="@+id/txtOutput"
         app:layout_constraintTop_toBottomOf="@+id/txtOutput" />
 
     <Button
         android:id="@+id/btnConvert"
-        android:layout_width="wrap_content"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="70dp"
         android:text="Convert"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -95,12 +98,30 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <Button
+    <ImageButton
         android:id="@+id/btnOption"
+        android:layout_width="56dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#00FFFFFF"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
+        android:scaleType="fitCenter"
+        android:scaleX="1"
+        android:scaleY="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/settings_128" />
+
+    <TextView
+        android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Option"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="16dp" />
+        android:text="Options"
+        android:textColor="#673AB7"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="@+id/btnOption"
+        app:layout_constraintStart_toStartOf="@+id/btnOption"
+        app:layout_constraintTop_toBottomOf="@+id/btnOption" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
