@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -25,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
         //0. Declare and initialize the xml elements, and variables to store values, and identify units
         View main = findViewById(R.id.viewMain);
         EditText txtInput = findViewById(R.id.txtInput);
+        EditText txtOutput = findViewById(R.id.txtOutput);
         TextView tvUnitFirst = findViewById(R.id.tvUnitFirst);
         TextView tvUnitSecond = findViewById(R.id.tvUnitSecond);
         Button btnConvert = findViewById(R.id.btnConvert);
@@ -103,50 +106,12 @@ public class MainActivity extends AppCompatActivity {
                 //Step 1: Convert input to mm, using a tempNum
                 //If the input is not a number, display an error message.
                 try {
-                    float input = Float.parseFloat(String.valueOf(txtInput.getText()));
-                    float tempNum, output;
-                    //Store the conversionInput so it can be displayed in DetailActivity
-                    Unit.conversionInput = input;
-                    //Unit 1 is cm
-                    if (num1 == 1) {
-                        tempNum = input * 10;
-                        //Unit 1 is m
-                    } else if (num1 == 2) {
-                        tempNum = input * (10 * 100);
-                        //Unit 1 is km
-                    } else if (num1 == 3) {
-                        tempNum = input * (10 * 100 * 1000);
-                        //Unit 1 is mm
-                    } else {
-                        tempNum = input;
-                    }
-
-                    //Step 2: Convert mm to final output unit
-                    //Unit 2 is mm, so do nothing
-                    if (finalNum == 0) {
-                        output = tempNum;
-                        //Unit 2 is cm
-                    } else if (finalNum == 1) {
-                        output = tempNum / 10;
-                        //Unit 2 is m
-                    } else if (finalNum == 2) {
-                        output = tempNum / (10 * 100);
-                        //Unit 2 is km
-                    } else {
-                        output = tempNum / (10 * 100 * 1000);
-                    }
-
-                    //Store the result in conversionResult, so it can be accessed by DetailActivity
-                    Unit.conversionResult = output;
-
+                    calculate(Float.parseFloat(String.valueOf(txtInput.getText())), num1, finalNum);
                     //Take user to DetailActivity to see result
                     //Create a new intent, to take user to DetailActivity
                     Intent intent = new Intent(MainActivity.this, DetailActivity.class);
                     //start the activity, and pass in intent as the argument
                     startActivity(intent);
-
-//                    //finish the activity, so that when press Return in DetailActivity, Activity is created again
-//                    finish();
 
                     //If the user enters non-numeric data, display an error message.
                 } catch (Exception e) {
@@ -177,11 +142,61 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        //Add a text watcher to calculate unit 2 in real time
+        txtInput.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                ;
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
     }
-//
-//    @Override
-//    public void onResume() {
-//        super.onResume();
-//        setContentView(R.layout.activity_main);
-//    }
+
+    public void calculate(float input, int initialNum, int finalNum) {
+        //Store the conversionInput so it can be displayed in DetailActivity
+        float tempNum, output;
+        Unit.conversionInput = input;
+        //Unit 1 is cm
+        if (initialNum == 1) {
+            tempNum = input * 10;
+            //Unit 1 is m
+        } else if (initialNum == 2) {
+            tempNum = input * (10 * 100);
+            //Unit 1 is km
+        } else if (initialNum == 3) {
+            tempNum = input * (10 * 100 * 1000);
+            //Unit 1 is mm
+        } else {
+            tempNum = input;
+        }
+
+        //Step 2: Convert mm to final output unit
+        //Unit 2 is mm, so do nothing
+        if (finalNum == 0) {
+            output = tempNum;
+            //Unit 2 is cm
+        } else if (finalNum == 1) {
+            output = tempNum / 10;
+            //Unit 2 is m
+        } else if (finalNum == 2) {
+            output = tempNum / (10 * 100);
+            //Unit 2 is km
+        } else {
+            output = tempNum / (10 * 100 * 1000);
+        }
+
+        //Store the result in conversionResult, so it can be accessed by DetailActivity
+        Unit.conversionResult = output;
+    }
 }

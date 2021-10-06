@@ -85,6 +85,8 @@ public class OptionActivity extends AppCompatActivity {
             switchManualUnits.setChecked(true);
             spinnerFirst.setEnabled(true);
             spinnerSecond.setEnabled(true);
+            spinnerFirst.setAlpha(1f);
+            spinnerSecond.setAlpha(1f);
             Log.d(TAG, "Spinners have been enabled, because they were enabled previously by the user!");
 
             //Set the items selected as the ones last picked by the user
