@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/viewMain"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:visibility="visible"
@@ -17,6 +18,7 @@
         android:hint="Enter a number here..."
         android:inputType="number|numberDecimal"
         android:textColor="#673AB7"
+        android:textColorHint="#707070"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.504"
@@ -59,7 +61,7 @@
         app:layout_constraintTop_toBottomOf="@+id/txtOutput" />
 
     <Button
-        android:id="@+id/btnReturn"
+        android:id="@+id/btnConvert"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="70dp"
@@ -81,5 +83,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtInput" />
+
+    <Switch
+        android:id="@+id/switchUI"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="Light Mode"
+        android:textColor="#1B1B1B"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

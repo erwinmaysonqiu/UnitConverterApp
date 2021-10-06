@@ -3,10 +3,12 @@ package au.edu.unsw.infs3634.unitconverter;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import java.util.Random;
@@ -20,15 +22,26 @@ public class MainActivity extends AppCompatActivity {
 
 
         //0. Declare and initialize the xml elements, and variables to store values, and identify units
+        View main = findViewById(R.id.viewMain);
         EditText txtInput = findViewById(R.id.txtInput);
         TextView tvUnitFirst = findViewById(R.id.tvUnitFirst);
         TextView tvUnitSecond = findViewById(R.id.tvUnitSecond);
-        Button btnConvert = findViewById(R.id.btnReturn);
+        Button btnConvert = findViewById(R.id.btnConvert);
+        Switch switchUI = findViewById(R.id.switchUI);
 
         int num1;
         int num2;
         String unit1Name, unit2Name;
 
+        //Instantiate a Setting to access methods
+        Setting setting = new Setting();
+
+        //Check if the User turned on Dark Mode
+        if (Setting.isBooleanNight() == true) {
+            setting.toDark(main, switchUI, txtInput);
+        } else {
+            ;
+        }
 
         //1. Generate 2 random integers between 0 and 3 to identify which units to use
         //NB: ArrayList index starts from 0, so we generate an integer between 0 and 3 to identify which of the 4 units to use
@@ -127,6 +140,21 @@ public class MainActivity extends AppCompatActivity {
                 //If the user enters non-numeric data, display an error message.
                 } catch (Exception e) {
                     txtInput.setError("Please input a number here, then press 'Convert'.");
+                }
+            }
+        });
+
+        //Set an OnClickListener that will change the UI to black, and text white, if user clicks on it
+        switchUI.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (Setting.isBooleanNight() == false) {
+                    setting.toDark(main, switchUI, txtInput);
+                    Setting.setBooleanNight(true);
+                }
+                else {
+                    setting.toLight(main, switchUI, txtInput);
+                    Setting.setBooleanNight(false);
                 }
             }
         });
