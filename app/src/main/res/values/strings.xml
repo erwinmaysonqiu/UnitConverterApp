@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Unit Converter</string>
+
+    <string-array name="units">
+        <item>millimetres</item>
+        <item>centimetres</item>
+        <item>metres</item>
+        <item>kilometres</item>
+    </string-array>
 </resources>

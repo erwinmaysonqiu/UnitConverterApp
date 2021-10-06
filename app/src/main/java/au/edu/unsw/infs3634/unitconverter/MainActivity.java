@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
         TextView tvUnitFirst = findViewById(R.id.tvUnitFirst);
         TextView tvUnitSecond = findViewById(R.id.tvUnitSecond);
         Button btnConvert = findViewById(R.id.btnConvert);
+        Button btnOption = findViewById(R.id.btnOption);
         Switch switchUI = findViewById(R.id.switchUI);
 
         int num1;
@@ -46,19 +47,28 @@ public class MainActivity extends AppCompatActivity {
         //1. Generate 2 random integers between 0 and 3 to identify which units to use
         //NB: ArrayList index starts from 0, so we generate an integer between 0 and 3 to identify which of the 4 units to use
         //The nextInt function excludes the max, so we always do the max value we want + 1; (i.e. let 4 be our upper, and 0 be our lower)
-
-        Random random = new Random();
-        num1 = random.nextInt(4 - 0) + 0;
-        num2 = random.nextInt(4 - 0) + 0;
-
-        //      Control: Selected units cannot be the same.
-        if (num1 == num2) {
-            while (num1 == num2) {
-                num2 = random.nextInt(4 - 0) + 0;
-            }
+        //CHECK: First check if the user has enabled Manual Control
+        if (setting.isBooleanManual() == true) {
+            //If booleanManual is enabled, go with the user's manually selected Units from the Option screen
+            num1 = setting.getUnitFirst();
+            System.out.println(num1);
+            num2 = setting.getUnitSecond();
+            System.out.println(num2);
         } else {
-            //do nothing
-            ;
+            //If booleanManual has not been toggled, generate random units
+            Random random = new Random();
+            num1 = random.nextInt(4 - 0) + 0;
+            num2 = random.nextInt(4 - 0) + 0;
+
+            //      Control: Randomly selected units cannot be the same.
+            if (num1 == num2) {
+                while (num1 == num2) {
+                    num2 = random.nextInt(4 - 0) + 0;
+                }
+            } else {
+                //do nothing
+                ;
+            }
         }
 
         //2. Set the textViews to display the selected Units
@@ -119,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
                         output = tempNum / 10;
                         //Unit 2 is m
                     } else if (finalNum == 2) {
-                        output = tempNum / (10*100);
+                        output = tempNum / (10 * 100);
                         //Unit 2 is km
                     } else {
                         output = tempNum / (10 * 100 * 1000);
@@ -130,14 +140,14 @@ public class MainActivity extends AppCompatActivity {
 
                     //Take user to DetailActivity to see result
                     //Create a new intent, to take user to DetailActivity
-                    Intent intent = new Intent(MainActivity.this,DetailActivity.class);
+                    Intent intent = new Intent(MainActivity.this, DetailActivity.class);
                     //start the activity, and pass in intent as the argument
                     startActivity(intent);
 
                     //finish the activity, so that when press Return in DetailActivity, Activity is created again
                     finish();
 
-                //If the user enters non-numeric data, display an error message.
+                    //If the user enters non-numeric data, display an error message.
                 } catch (Exception e) {
                     txtInput.setError("Please input a number here, then press 'Convert'.");
                 }
@@ -151,11 +161,20 @@ public class MainActivity extends AppCompatActivity {
                 if (Setting.isBooleanNight() == false) {
                     setting.toDark(main, switchUI, txtInput);
                     Setting.setBooleanNight(true);
-                }
-                else {
+                } else {
                     setting.toLight(main, switchUI, txtInput);
                     Setting.setBooleanNight(false);
                 }
+            }
+        });
+
+        //Navigate to Option screen
+        btnOption.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, OptionActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
     }

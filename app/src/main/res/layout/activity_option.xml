@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/btnReturn1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="148dp"
+        android:text="Return"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerUnit2" />
+
+    <Switch
+        android:id="@+id/switchManual"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="244dp"
+        android:layout_marginBottom="20dp"
+        android:text="Manual Selection"
+        android:textColor="#1B1B1B"
+        app:layout_constraintBottom_toTopOf="@+id/tvUnitFirst2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/tvUnitFirst2" />
+
+    <TextView
+        android:id="@+id/tvUnitFirst3"
+        android:layout_width="55dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="16dp"
+        android:text="Unit 2"
+        android:textColor="#673AB7"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/tvUnitFirst2"
+        app:layout_constraintTop_toBottomOf="@+id/tvUnitFirst2" />
+
+    <TextView
+        android:id="@+id/tvUnitFirst2"
+        android:layout_width="55dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="172dp"
+        android:text="Unit 1"
+        android:textColor="#673AB7"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/spinnerUnit2"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:gravity="left"
+        app:layout_constraintStart_toStartOf="@+id/spinnerUnit1"
+        app:layout_constraintTop_toTopOf="@+id/tvUnitFirst3" />
+
+    <Spinner
+        android:id="@+id/spinnerUnit1"
+        android:layout_width="wrap_content"
+        android:layout_height="24dp"
+        android:layout_marginStart="12dp"
+        app:layout_constraintStart_toEndOf="@+id/tvUnitFirst2"
+        app:layout_constraintTop_toTopOf="@+id/tvUnitFirst2" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

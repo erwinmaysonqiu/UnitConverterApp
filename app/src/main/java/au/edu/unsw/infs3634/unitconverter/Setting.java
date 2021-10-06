@@ -9,6 +9,9 @@ public class Setting {
 
     //Declare variables stored in setting
     public static boolean booleanNight = false;
+    public static boolean booleanManual = false;
+    public static int unitFirst;
+    public static int unitSecond;
 
     //Declare constructor
     public Setting() {
@@ -39,5 +42,29 @@ public class Setting {
 
     public static boolean isBooleanNight() {
         return booleanNight;
+    }
+
+    public static boolean isBooleanManual() {
+        return booleanManual;
+    }
+
+    public static void setBooleanManual(boolean booleanManual) {
+        Setting.booleanManual = booleanManual;
+    }
+
+    public static int getUnitFirst() {
+        return unitFirst;
+    }
+
+    public static int getUnitSecond() {
+        return unitSecond;
+    }
+
+    public static void setUnitFirst(int unitFirst) {
+        Setting.unitFirst = unitFirst;
+    }
+
+    public static void setUnitSecond(int unitSecond) {
+        Setting.unitSecond = unitSecond;
     }
 }
