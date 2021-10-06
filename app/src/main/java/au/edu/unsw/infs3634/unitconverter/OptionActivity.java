@@ -10,6 +10,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Switch;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -33,6 +35,7 @@ public class OptionActivity extends AppCompatActivity {
         Spinner spinnerSecond = findViewById(R.id.spinnerUnit2);
         Switch switchManualUnits = findViewById(R.id.switchManual);
         Button btnReturn = findViewById(R.id.btnReturn1);
+        TextView unitSecond = findViewById(R.id.tvUnitSecond2);
 
 
         //Instantiate a new unit and setting to access class methods/attributes
@@ -117,6 +120,7 @@ public class OptionActivity extends AppCompatActivity {
                 //Assign the item position of the select unit as UnitFirst and UnitSecond
                 setting.setUnitSecond(spinnerSecond.getSelectedItemPosition());
             }
+
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
                 //Even if the user does not select a unit, if the user has enabled Manual control, whatever is currently selected in
@@ -154,12 +158,31 @@ public class OptionActivity extends AppCompatActivity {
 
         //Navigate to Main Activity screen
         btnReturn.setOnClickListener(new View.OnClickListener() {
+
+
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(OptionActivity.this, MainActivity.class);
-                startActivity(intent);
-                //Need to finish this Activity so we can access our OnCreate method once we resume
-                finish();
+                //First check if user selected the same units
+                if (spinnerFirst.getSelectedItem() == spinnerSecond.getSelectedItem()) {
+                    Toast toast = Toast.makeText(getApplicationContext(),
+                            "Please choose different units for conversion.",
+                            Toast.LENGTH_SHORT);
+
+                    toast.show();
+
+                } else {
+                    Intent intent = new Intent(OptionActivity.this, MainActivity.class);
+                    startActivity(intent);
+                    Toast toast = Toast.makeText(getApplicationContext(),
+                            "Saved Changes",
+                            Toast.LENGTH_SHORT);
+
+                    toast.show();
+                    //Need to finish this Activity so we can access our OnCreate method once we resume
+                    finish();
+
+
+                }
             }
         });
     }

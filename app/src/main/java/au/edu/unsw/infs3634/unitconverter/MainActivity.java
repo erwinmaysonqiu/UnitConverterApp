@@ -145,8 +145,8 @@ public class MainActivity extends AppCompatActivity {
                     //start the activity, and pass in intent as the argument
                     startActivity(intent);
 
-                    //finish the activity, so that when press Return in DetailActivity, Activity is created again
-                    finish();
+//                    //finish the activity, so that when press Return in DetailActivity, Activity is created again
+//                    finish();
 
                     //If the user enters non-numeric data, display an error message.
                 } catch (Exception e) {
@@ -175,8 +175,13 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, OptionActivity.class);
                 startActivity(intent);
-                finish();
             }
         });
     }
+//
+//    @Override
+//    public void onResume() {
+//        super.onResume();
+//        setContentView(R.layout.activity_main);
+//    }
 }
