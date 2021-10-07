@@ -19,12 +19,12 @@
 
     <Switch
         android:id="@+id/switchManual"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="245dp"
+        android:layout_height="25dp"
         android:layout_marginEnd="244dp"
         android:layout_marginBottom="16dp"
         android:text="Manual Selection"
-        android:textColor="#1B1B1B"
+        android:textColor="#673AB7"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/tvUnitFirst2"
         app:layout_constraintEnd_toEndOf="parent"
@@ -36,19 +36,30 @@
         android:layout_width="55dp"
         android:layout_height="25dp"
         android:layout_marginTop="16dp"
-        android:text="Unit 2"
+        android:text="Unit 2:"
         android:textColor="#673AB7"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="@+id/tvUnitFirst2"
         app:layout_constraintTop_toBottomOf="@+id/tvUnitFirst2" />
 
     <TextView
+        android:id="@+id/tvUnitSecond3"
+        android:layout_width="155dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="16dp"
+        android:text="Realtime Calculation:"
+        android:textColor="#673AB7"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/tvUnitSecond2"
+        app:layout_constraintTop_toBottomOf="@+id/tvUnitSecond2" />
+
+    <TextView
         android:id="@+id/tvUnitFirst2"
         android:layout_width="55dp"
         android:layout_height="25dp"
-        android:layout_marginStart="48dp"
+        android:layout_marginStart="84dp"
         android:layout_marginTop="172dp"
-        android:text="Unit 1"
+        android:text="Unit 1:"
         android:textColor="#673AB7"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -85,5 +96,15 @@
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ToggleButton
+        android:id="@+id/toggleRealtime"
+        android:layout_width="50dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="40dp"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvUnitSecond3"
+        app:layout_constraintStart_toEndOf="@+id/tvUnitSecond3"
+        app:layout_constraintTop_toTopOf="@+id/tvUnitSecond3" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

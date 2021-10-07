@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
@@ -48,6 +49,11 @@ public class MainActivity extends AppCompatActivity {
             ;
         }
 
+        //Check if the user enabled realtime calculation
+        if (Setting.isBooleanRealTime() == true) {
+            btnConvert.setVisibility(View.GONE);
+        }
+
         //1. Generate 2 random integers between 0 and 3 to identify which units to use
         //NB: ArrayList index starts from 0, so we generate an integer between 0 and 3 to identify which of the 4 units to use
         //The nextInt function excludes the max, so we always do the max value we want + 1; (i.e. let 4 be our upper, and 0 be our lower)
@@ -55,9 +61,7 @@ public class MainActivity extends AppCompatActivity {
         if (setting.isBooleanManual() == true) {
             //If booleanManual is enabled, go with the user's manually selected Units from the Option screen
             num1 = setting.getUnitFirst();
-            System.out.println(num1);
             num2 = setting.getUnitSecond();
-            System.out.println(num2);
         } else {
             //If booleanManual has not been toggled, generate random units
             Random random = new Random();
@@ -70,7 +74,6 @@ public class MainActivity extends AppCompatActivity {
                     num2 = random.nextInt(4 - 0) + 0;
                 }
             } else {
-                //do nothing
                 ;
             }
         }
@@ -152,8 +155,14 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-
+                if (TextUtils.isEmpty(txtInput.getText().toString()) == false && setting.isBooleanRealTime() == true) {
+                    calculate(Float.parseFloat(String.valueOf(txtInput.getText())), num1, finalNum);
+                    txtOutput.setEnabled(true);
+                    txtOutput.setText(String.valueOf(Unit.conversionResult));
+                } else {
+                    txtOutput.setText("");
+                    txtOutput.setEnabled(false);
+                }
             }
 
             @Override

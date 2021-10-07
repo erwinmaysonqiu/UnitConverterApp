@@ -10,6 +10,7 @@ public class Setting {
     //Declare variables stored in setting
     public static boolean booleanNight = false;
     public static boolean booleanManual = false;
+    public static boolean booleanRealTime = false;
     public static int unitFirst;
     public static int unitSecond;
 
@@ -22,7 +23,7 @@ public class Setting {
     public void toDark(View v, Switch s, EditText e) {
         v.setBackgroundColor(Color.parseColor("#212121"));
         s.setText("Dark Mode");
-        s.setTextColor(Color.parseColor("#ffffff"));
+        s.setTextColor(Color.parseColor("#673AB7"));
         s.setChecked(true);
         e.setHintTextColor(Color.parseColor("#ffffff"));
     }
@@ -30,7 +31,7 @@ public class Setting {
     public void toLight(View v, Switch s, EditText e) {
         v.setBackgroundColor(Color.parseColor("#ffffff"));
         s.setText("Light Mode");
-        s.setTextColor(Color.parseColor("#FF1B1B1B"));
+        s.setTextColor(Color.parseColor("#673AB7"));
         s.setChecked(false);
         e.setHintTextColor(Color.parseColor("#707070"));
     }
@@ -66,5 +67,12 @@ public class Setting {
 
     public static void setUnitSecond(int unitSecond) {
         Setting.unitSecond = unitSecond;
+    }
+
+    public static boolean isBooleanRealTime() {
+        return booleanRealTime;
+    }
+    public static void setBooleanRealTime(boolean booleanRealTime) {
+        Setting.booleanRealTime = booleanRealTime;
     }
 }
