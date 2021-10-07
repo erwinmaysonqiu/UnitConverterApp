@@ -13,7 +13,6 @@ import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.ToggleButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -38,7 +37,7 @@ public class OptionActivity extends AppCompatActivity {
         Switch switchManualUnits = findViewById(R.id.switchManual);
         Button btnReturn = findViewById(R.id.btnReturn1);
         TextView unitSecond = findViewById(R.id.tvUnitSecond2);
-        ToggleButton realtime = findViewById(R.id.toggleRealtime);
+        Switch realtime = findViewById(R.id.switchRealtime);
 
 
         //Instantiate a new unit and setting to access class methods/attributes
