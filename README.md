@@ -1,1 +1,1 @@
-Unit Converter app helps its users by converting the units from one to another.
+This application converts between different units of measurement, as specified by the user.
