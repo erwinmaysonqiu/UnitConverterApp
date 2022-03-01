@@ -1,4 +1,4 @@
-package au.edu.unsw.infs3634.unitconverter;
+package au.syd.project.unitconverter.app;
 
 import android.graphics.Color;
 import android.view.View;
