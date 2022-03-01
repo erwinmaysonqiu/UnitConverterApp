@@ -1,4 +1,4 @@
-package au.syd.project.unitconverter.app;
+package au.syd.project.erwinmaysonq.unitconverter;
 
 import android.graphics.Color;
 import android.view.View;

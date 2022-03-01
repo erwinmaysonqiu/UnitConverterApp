@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="au.syd.project.unitconverter.app">
+    package="au.syd.project.erwinmaysonq.unitconverter">
 
     <application
         android:allowBackup="true"
@@ -10,13 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.UnitConverter">
         <activity
-            android:name="au.syd.project.unitconverter.app.DetailActivity"
+            android:name="au.syd.project.erwinmaysonq.unitconverter.DetailActivity"
             android:exported="true" />
         <activity
-            android:name="au.syd.project.unitconverter.app.OptionActivity"
+            android:name="au.syd.project.erwinmaysonq.unitconverter.OptionActivity"
             android:exported="true" />
         <activity
-            android:name="au.syd.project.unitconverter.app.MainActivity"
+            android:name="au.syd.project.erwinmaysonq.unitconverter.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
